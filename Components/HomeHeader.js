@@ -1,10 +1,8 @@
 import { View, StyleSheet, Pressable, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import FasallyUser from '../assets/Icons/FasallyUser.svg';
 import BellIcon from '../assets/Icons/BellIcon.svg';
 import Search from '../assets/Icons/Search.svg'
 import { GlobalStyles } from '../Constants/Styles';
-
 export default function HomeHeader() {
   return (
     <View style={styles.header}>
@@ -12,9 +10,9 @@ export default function HomeHeader() {
       {/* LEFT ICONS */}
       <View style={styles.left}>
         <Pressable style={styles.iconCircle}>
-          <View  style={styles.borders}>
-          <FasallyUser width={40} height={40} color= {GlobalStyles.colors.dark_purple} />
-          </View>
+              <View  style={styles.borders}>
+              <FasallyUser width={40} height={40} color= {GlobalStyles.colors.dark_purple} />
+            </View>
            </Pressable>
 
         <View style={styles.notificationWrapper}>
@@ -45,18 +43,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor:GlobalStyles.colors.light_blue,
-    paddingHorizontal: 16,
-    paddingTop: '8%',
-    paddingBottom: 5,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    paddingHorizontal: '4%',
+    paddingTop: '15%',
+    paddingBottom: '5%',
   },
   borders:{
     borderRadius:20,
     borderColor:GlobalStyles.colors.dark_purple,
     borderWidth:1
   },
-
+ 
   left: {
     flexDirection: 'row',
     alignItems: 'center',

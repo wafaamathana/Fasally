@@ -4,10 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 import Rating from "../Rating";
 import { GlobalStyles } from "../../Constants/Styles";
 
-const CARD_WIDTH = 200;
+const CARD_WIDTH = 158;
 
 function ProductCard({ image, index, total }) {
-  return (
+  return (<>
     <View style={styles.card}>
       
       <View style={styles.imageContainer}>
@@ -52,27 +52,31 @@ function ProductCard({ image, index, total }) {
         
       </View>
     </View>
+      </>
   );
 }
 
 export default ProductCard;
 
 const styles = StyleSheet.create({
+    
   card: {
     backgroundColor: "#fff",
     borderRadius: 12,
-    padding: 10,
+    paddingHorizontal:5,
+    paddingTop:2,
     width: CARD_WIDTH+11,
     elevation: 4,
-    marginRight: 12, // ✅ مسافة بين الكروت
-    
+    marginLeft: '4%',
+    marginRight: '-3%',
+    marginBottom:'5%',
   },
   imageContainer: {
     width: CARD_WIDTH ,
     position: "relative",
   },
   image: {
-    width: "95%",
+    width: "100%",
     height: 120,
     borderRadius: 10,
   },

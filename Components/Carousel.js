@@ -46,17 +46,6 @@ function Carousel() {
               />
             ))}
           </View>
-
-          {/* ---------- Grid Images ---------- */}
-          <View style={styles.grid}>
-            {item.gridImages.map((img) => (
-              <Image
-                key={img.id}
-                source={img.img}
-                style={styles.gridImage}
-              />
-            ))}
-          </View>
         </View>
         
       )}
@@ -68,7 +57,7 @@ export default Carousel;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 30,
+    marginBottom: 18,
      marginRight: 12,
      marginLeft:12
   },
@@ -97,18 +86,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#7b2cbf",
   },
 
-  grid: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    //paddingHorizontal: 1 ,
-    
-  },
-
-  gridImage: {
-   // width: "48%",
-    //height: 140,
-    borderRadius: 12,
-    borderColor:GlobalStyles.colors.dark_purple,
-    borderWidth:2
-  },
 });
