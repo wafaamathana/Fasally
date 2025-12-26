@@ -69,7 +69,7 @@ export default function App() {
        
    <View style={styles.badge}>
                <Text style={styles.badgeText}>+9</Text>
-             </View>
+    </View>
   </>
       
   );

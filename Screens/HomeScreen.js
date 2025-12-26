@@ -5,6 +5,7 @@ import List from "../Components/ProductCardList/List";
 import {DATA} from '../Dummy_Data/Data'
 import { GlobalStyles } from "../Constants/Styles";
 import HeadLine from '../Components/HeadLine';
+import TailorsList from '../Components/TailorCard/TailorList';
 
 function HomeScreen() {
   return (<>
@@ -17,6 +18,7 @@ function HomeScreen() {
       </HeadLine>
       <List />
       <HeadLine>Nearby tailors</HeadLine>
+      <TailorsList />
     </View>
     </ScrollView>
   </>
@@ -29,6 +31,9 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:GlobalStyles.colors.light_blue
+    backgroundColor:GlobalStyles.colors.light_blue,
+    paddingBottom:50,
+    paddingHorizontal:12
+    
   },
 });

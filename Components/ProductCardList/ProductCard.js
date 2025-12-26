@@ -1,10 +1,9 @@
 // Components/ProductCardList/ProductCard.js
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Rating from "../Rating";
 import { GlobalStyles } from "../../Constants/Styles";
 
-const CARD_WIDTH = 158;
 
 function ProductCard({ image, index, total }) {
   return (<>
@@ -44,40 +43,40 @@ function ProductCard({ image, index, total }) {
           </Pressable>
       </View>
 </View>
-     
-
-      <View style={styles.footer}>
-        <Rating rating={4} />
-
-        
-      </View>
+     <View style={styles.footer}><Rating rating={4} /></View>
     </View>
       </>
   );
 }
 
 export default ProductCard;
+const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
+const CARD_HEIGHT = deviceHeight /7.5
+const CARD_WIDTH = deviceWidth / 2.5;
+//const scale = deviceWidth / 35;
 
 const styles = StyleSheet.create({
     
   card: {
     backgroundColor: "#fff",
     borderRadius: 12,
-    paddingHorizontal:5,
+    paddingHorizontal:2,
     paddingTop:2,
-    width: CARD_WIDTH+11,
+    width: CARD_WIDTH,
     elevation: 4,
-    marginLeft: '4%',
-    marginRight: '-3%',
+   // marginLeft: 10,
+    marginRight: '1%',
     marginBottom:'5%',
+    
   },
   imageContainer: {
-    width: CARD_WIDTH ,
+    width: '99%',
     position: "relative",
   },
   image: {
-    width: "100%",
-    height: 120,
+    width: CARD_WIDTH - 5 ,
+    height: CARD_HEIGHT,
     borderRadius: 10,
   },
   imageCounter: {
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 6,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "600",
   },
   colorsContainer: {
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: "bold",
     fontSize: 14,
-    marginRight: 6,
+   // marginRight: 6,
   },
   oldPrice: {
     fontSize: 12,
@@ -123,20 +122,21 @@ const styles = StyleSheet.create({
   PriceAndActions:{
     flexDirection:'row',
     justifyContent:'space-around',
-    alignItems:'center'
+    alignItems:'center',
+    //paddingHorizontal:2,
   },
   footer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 6,
+    marginTop: 7,
+    marginBottom:9
   },
-  actions: {
+  actions: { //////////eding here
     flexDirection: "row",
     backgroundColor:GlobalStyles.colors.dark_purple,
     borderRadius:5,
-    padding:6
-
+    padding:5
   },
   actionButton: {
     marginLeft: 10,

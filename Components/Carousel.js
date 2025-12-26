@@ -4,7 +4,7 @@ import { DATA } from "../Dummy_Data/Data";
 import ProductCard from "./ProductCardList/ProductCard";
 import { GlobalStyles } from "../Constants/Styles";
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
+
 
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -54,18 +54,17 @@ function Carousel() {
 }
 
 export default Carousel;
-
+const SCREEN_WIDTH = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   container: {
     marginBottom: 18,
-     marginRight: 12,
-     marginLeft:12
   },
 
   horizontalImage: {
     width: SCREEN_WIDTH-23,
     height: 230,
     resizeMode: "cover",
+    borderRadius:12
   },
 
   dotsContainer: {

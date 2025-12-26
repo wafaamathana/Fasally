@@ -26,18 +26,24 @@ function Grid({ item }) {
 }
 
 export default Grid;
-
-
 const deviceWidth = Dimensions.get('window').width;
+const deviceHeight = Dimensions.get('window').height;
+const CARD_HEIGHT = deviceHeight /5
+const CARD_WIDTH = deviceWidth / 5;
 const styles =StyleSheet.create({
   grid: {
     flexDirection: "row",
-    justifyContent: "space-between",
-     paddingHorizontal: deviceWidth < 380 ? 10 : 15,
+    justifyContent: 'space-between',
+     //paddingHorizontal: deviceWidth < 380 ? 10 : 15,
+   
+    
   },
   gridImage: {
     borderRadius: 12,
     borderColor:GlobalStyles.colors.dark_purple,
     borderWidth:2,
+    width: CARD_HEIGHT ,
+    height:CARD_WIDTH
+   
   },
 })

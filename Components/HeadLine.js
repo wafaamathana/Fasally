@@ -14,7 +14,6 @@ export default HeadLine;
 const styles = StyleSheet.create({
   
     textContainer:{
-        paddingLeft:'5%',
         paddingVertical:'1%'
     },
     text:{
