@@ -2,7 +2,7 @@ export const TAILORS = [
   {
     id: "t1",
     name: "Essam Hamdy",
-    image: require("../assets/ADVs/Essam.png"),
+    image: require("../../../assets/ADVs/Essam.png"),
     description:
       "An experienced tailor specialized in modern fashion design. Worked on many ex...",
     tags: ["Luxury", "Alter & Repairs"],
@@ -22,7 +22,7 @@ export const TAILORS = [
   {
     id: "t3",
     name: "Essam Hamdy",
-    image: require("../assets/ADVs/Essam.png"),
+    image: require("../../../assets/ADVs/Essam.png"),
     description:
       "An experienced tailor specialized in modern fashion design. Worked on many ex...",
     tags: ["Luxury", "Alter & Repairs"],

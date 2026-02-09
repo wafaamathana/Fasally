@@ -6,9 +6,8 @@ import {
   Pressable,
   Dimensions,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import Rating from "../Rating";
-import { GlobalStyles } from "../../Constants/Styles";
+import { GlobalStyles } from "../../../../Constants/Styles";
+import Rating from "../../../../Shared/ui/Rating/Rating";
 function TailorCard({ item }) {
   /*function renderStars(rate) {
     return [...Array(5)].map((_, index) => (
@@ -29,7 +28,7 @@ function TailorCard({ item }) {
           <Image source={item.image} style={styles.image} />
         ) : (
           <Image
-            source={require("../../assets/ADVs/nullPhoto.png")}
+            source={require("../../../../assets/ADVs/nullPhoto.png")}
             style={styles.image}
           />
         )}
@@ -53,50 +52,55 @@ function TailorCard({ item }) {
       </View>
 
       {/* Rating */}
-      <View style={styles.ratingContainer}>
-        {/*  <View style={styles.stars}>{renderStars(item.rating)}</View>*/}
-        <View style={styles.footer}>{/**<Rating rating={4} /> */}</View>
-        <Text style={styles.reviewText}>({item.reviews})</Text>
-      </View>
+      <Rating
+        rating={4.5}
+        reviewsCount={116}
+        onPressComments={() => navigation.navigate("Reviews")}
+      />
     </Pressable>
   );
 }
 
 export default TailorCard;
+
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
   card: {
-    width: deviceWidth / 2.5,
+    width: deviceWidth / 2.4,
     height: deviceHeight / 4.5,
     backgroundColor: "#fff",
     borderRadius: 16,
     padding: 12,
-    marginRight: "1%",
+    marginRight: "2.5%",
     marginTop: 60, // مساحة للصورة
     elevation: 4,
     position: "relative", //  مهم
-    paddingTop: 50,
+    paddingTop: 35,
     marginBottom: 20,
     borderColor: GlobalStyles.colors.dark_purple,
-    borderWidth: 2,
+    borderWidth: 3,
+    justifyContent: "space-between",
+
+    alignItems: "center",
   },
   imageContainer: {
-    width: deviceWidth - 360,
-    height: deviceWidth - 360,
+    width: "70%",
+    height: "100%",
     borderRadius: 150,
     borderWidth: 2,
     borderColor: "#6A1B4D",
     justifyContent: "center",
     alignItems: "center",
 
-    position: "absolute", //  هنا السحر
-    top: -60, // نص الصورة برا الكارد
+    position: "absolute",
+    top: -60,
     alignSelf: "center",
     backgroundColor: "#fff",
   },
   image: {
     width: "100%",
+
     height: "100%",
     borderRadius: 100,
     zIndex: 10,
@@ -108,21 +112,19 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 16,
-    marginBottom: 4,
-    marginTop: 25,
   },
   desc: {
     textAlign: "center",
     fontSize: 12,
     color: "#777",
-    marginBottom: 8,
+    //marginBottom: "5%",
   },
   tagsContainer: {
     flexDirection: "row",
     justifyContent: "center",
     flexWrap: "wrap",
     gap: 6,
-    marginBottom: "6%",
+    //marginBottom: "6%",
   },
   tag: {
     backgroundColor: "#F3E5F5",

@@ -1,4 +1,3 @@
-// Components/ProductCardList/ProductCard.js
 import {
   View,
   Text,
@@ -8,21 +7,23 @@ import {
   Dimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { GlobalStyles } from "../../Constants/Styles";
-import RatingStars from "../RatinComponents/RatingStars";
+import { GlobalStyles } from "../../../../Constants/Styles";
+import Rating from "../../../../Shared/ui/Rating/Rating";
+function ProductCard({ product, onPress }) {
+  const { image, name, price, oldPrice, rating } = product;
 
-function ProductCard({ image, title, price, oldPrice, rating, index, total }) {
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
-        <Image source={image} style={styles.image} />
-        <Text style={styles.imageCounter}>
-          {index + 1}/{total}
-        </Text>
+        <Image
+          source={typeof image === "string" ? { uri: image } : image}
+          style={styles.image}
+        />
+        <Text style={styles.imageCounter}>1/1</Text>
       </View>
 
       <Text style={styles.title} numberOfLines={2}>
-        {title}
+        {name}
       </Text>
 
       <View style={styles.colorsContainer}>
@@ -31,25 +32,22 @@ function ProductCard({ image, title, price, oldPrice, rating, index, total }) {
         <View style={[styles.colorDot, { backgroundColor: "#00882D" }]} />
       </View>
 
-      <View style={styles.PriceAndActions}>
-        <View style={styles.priceContainer}>
+      <View style={styles.priceAndActions}>
+        <View>
           <Text style={styles.price}>{price} EGP/m</Text>
           {oldPrice && <Text style={styles.oldPrice}>{oldPrice} EGP/m</Text>}
         </View>
 
-        <View style={styles.actions}>
-          <Pressable>
-            <Ionicons name="heart-outline" size={20} color="#fff" />
-          </Pressable>
-          <Pressable style={styles.actionButton}>
-            <Ionicons name="cart-outline" size={20} color="#fff" />
-          </Pressable>
-        </View>
+        <Pressable style={styles.actions} onPress={onPress}>
+          <Ionicons name="cart-outline" size={20} color="#fff" />
+        </Pressable>
       </View>
 
-      <View style={styles.footer}>
-        <RatingStars rating={rating || 0} />
-      </View>
+      <Rating
+        rating={4.5}
+        reviewsCount={116}
+        onPressComments={() => navigation.navigate("Reviews")}
+      />
     </View>
   );
 }
@@ -57,30 +55,24 @@ function ProductCard({ image, title, price, oldPrice, rating, index, total }) {
 export default ProductCard;
 
 const deviceWidth = Dimensions.get("window").width;
-const deviceHeight = Dimensions.get("window").height;
-const CARD_HEIGHT = deviceHeight / 7.5;
-const CARD_WIDTH = deviceWidth / 2.5;
-//const scale = deviceWidth / 35;
+const CARD_WIDTH = deviceWidth / 2.4;
 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     borderRadius: 12,
-    paddingHorizontal: 2,
-    paddingTop: 2,
+    padding: 8,
     width: CARD_WIDTH,
     elevation: 4,
-    // marginLeft: 10,
-    marginRight: "1%",
-    marginBottom: "5%",
+    marginBottom: 16,
+    marginRight: 12,
   },
   imageContainer: {
-    width: "99%",
     position: "relative",
   },
   image: {
-    width: CARD_WIDTH - 5,
-    height: CARD_HEIGHT,
+    width: "100%",
+    height: 120,
     borderRadius: 10,
   },
   imageCounter: {
@@ -101,6 +93,7 @@ const styles = StyleSheet.create({
   colorsContainer: {
     flexDirection: "row",
     marginVertical: 6,
+    alignSelf: "center",
   },
   colorDot: {
     width: 14,
@@ -108,41 +101,27 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     marginRight: 6,
   },
-  priceContainer: {
-    flexDirection: "column",
-    backgroundColor: "rgba(f, f, f, 1)",
+  priceAndActions: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   price: {
     fontWeight: "bold",
     fontSize: 14,
-    // marginRight: 6,
   },
   oldPrice: {
     fontSize: 12,
     color: "gray",
     textDecorationLine: "line-through",
   },
-  PriceAndActions: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    //paddingHorizontal:2,
-  },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 7,
-    marginBottom: 9,
-  },
   actions: {
-    //////////eding here
-    flexDirection: "row",
     backgroundColor: GlobalStyles.colors.dark_purple,
-    borderRadius: 5,
-    padding: 5,
+    borderRadius: 6,
+    padding: 6,
   },
-  actionButton: {
-    marginLeft: 10,
+  rating: {
+    fontSize: 12,
+    marginTop: 6,
   },
 });

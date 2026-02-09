@@ -15,15 +15,9 @@ function List() {
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.id}
       renderItem={({ item, index }) => (
-        <ProductCard
-          image={item}
-          index={index}
-          total={images.length}
-  
-        />
+        <ProductCard image={item} index={index} total={images.length} />
       )}
     />
   );
 }
 export default List;
-
