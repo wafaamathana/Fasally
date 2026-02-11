@@ -5,12 +5,12 @@ function HeadLine({ children }) {
     <>
       <View style={styles.textContainer}>
         <Text style={styles.text}>{children}</Text>
-        <Pressable style={styles.buttun}>
+        {/* <Pressable style={styles.buttun}>
           <Text style={{ color: "#6A1B4D", textDecorationLine: "underline" }}>
             See More
           </Text>
           <Ionicons name="chevron-forward-outline" size={16} color="#6A1B4D" />
-        </Pressable>
+        </Pressable>*/}
       </View>
     </>
   );
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
   },
   buttun: {

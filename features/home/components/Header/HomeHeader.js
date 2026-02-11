@@ -3,12 +3,22 @@ import FasallyUser from "../../../../assets/Icons/FasallyUser.svg";
 import BellIcon from "../../../../assets/Icons/BellIcon.svg";
 import Search from "../../../../assets/Icons/Search.svg";
 import { GlobalStyles } from "../../../../Constants/Styles";
+import { useNavigation } from "@react-navigation/native";
+
+const goToSettings = (navigation) => {
+  navigation.navigate("Settings");
+};
+
 export default function HomeHeader() {
+  const navigation = useNavigation();
   return (
     <View style={styles.header}>
       {/* LEFT ICONS */}
       <View style={styles.left}>
-        <Pressable style={styles.iconCircle}>
+        <Pressable
+          style={styles.iconCircle}
+          onPress={() => goToSettings(navigation)}
+        >
           <View style={styles.borders}>
             <FasallyUser
               width={40}
