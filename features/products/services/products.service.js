@@ -19,5 +19,14 @@ export const getBestSellingProducts = async () => {
       reviewsCount: 23,
       isFavorite: true,
     },
+    {
+      id: "3",
+      name: "Royal-colored fabrics",
+      price: 139.99,
+      image: require("../../../assets/ADVs/fabric_img2.png"),
+      rating: 4.2,
+      reviewsCount: 23,
+      isFavorite: true,
+    },
   ];
 };

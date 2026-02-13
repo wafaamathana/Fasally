@@ -11,10 +11,11 @@ function ProductGrid({ products = [], onProductPress }) {
       renderItem={({ item }) => (
         <ProductCard product={item} onPress={() => onProductPress?.(item.id)} />
       )}
-      numColumns={2}
-      columnWrapperStyle={{ justifyContent: "space-between" }}
-      scrollEnabled={false}
-      showsVerticalScrollIndicator={false}
+      //numColumns={2}
+      //columnWrapperStyle={{ justifyContent: "space-between" }}
+      //scrollEnabled={false}
+      //showsVerticalScrollIndicator={false}
+      horizontal
     />
   );
 }
