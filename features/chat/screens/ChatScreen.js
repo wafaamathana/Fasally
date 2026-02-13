@@ -1,16 +1,16 @@
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-function Tailors() {
+function Chat() {
   return (
     <>
       <View style={Styles.container}>
-        <Text>Tailors page</Text>
+        <Text>Chat page</Text>
       </View>
     </>
   );
 }
 
-export default Tailors;
+export default Chat;
 
 const Styles = StyleSheet.create({
   container: {

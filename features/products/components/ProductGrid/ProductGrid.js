@@ -15,6 +15,7 @@ function ProductGrid({ products = [], onProductPress }) {
       //columnWrapperStyle={{ justifyContent: "space-between" }}
       //scrollEnabled={false}
       //showsVerticalScrollIndicator={false}
+      // this made an error when used with the scrollview in the home screen, so I removed it and added it to the scrollview instead, but it can be added back if needed and tested with the scrollview
       horizontal
     />
   );

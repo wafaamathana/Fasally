@@ -2,8 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { getBestSellingProducts } from "../services/products.service";
 import ProductGrid from "../components/ProductGrid/ProductGrid";
-
-export const FabricsScreen = ({ navigation }) => {
+function FabricsScreen({ navigation }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -20,7 +19,8 @@ export const FabricsScreen = ({ navigation }) => {
       />
     </View>
   );
-};
+}
+export default FabricsScreen;
 
 const styles = StyleSheet.create({
   container: {

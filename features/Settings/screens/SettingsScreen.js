@@ -3,33 +3,33 @@ import { View, Text, ScrollView } from "react-native";
 import styles from "./styles";
 import SettingsItem from "../components/SettingsItem";
 import SectionHeader from "../components/SectionHeader";
+import LanguageItem from "../components/Language/LanguageItem";
+import ThemeItem from "../components/Theme/ThemeItem";
+import SettingListItem from "../components/SettingListItem";
+import { preferencesData } from "../Data/settingsData";
 import * as SettingsService from "../services/settings.service";
 import HeadLine from "../../../Shared/ui/HeadLine";
 
 export default function SettingsScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
-      {/* Profile */}
       <View style={styles.profileCard}>
         <View style={styles.avatar} />
-        <Text style={styles.name}>y3sinsamy </Text>
+        <Text style={styles.name}>Um Sajda</Text>
       </View>
 
-      {/* Preferences */}
       <HeadLine>Preferences</HeadLine>
-      <SettingsItem
+      <LanguageItem
         title="App language"
         subtitle="English"
         onPress={SettingsService.changeLanguage}
       />
-
-      <SettingsItem
+      <ThemeItem
         title="Current theme"
         subtitle="Light / Dark"
         onPress={SettingsService.toggleTheme}
       />
 
-      {/* Account */}
       <HeadLine>Your account</HeadLine>
 
       <SettingsItem
@@ -50,7 +50,6 @@ export default function SettingsScreen({ navigation }) {
         onPress={() => navigation.navigate("Payments")}
       />
 
-      {/* Contact */}
       <HeadLine>Let’s get in touch</HeadLine>
 
       <SettingsItem
@@ -65,7 +64,6 @@ export default function SettingsScreen({ navigation }) {
         onPress={() => navigation.navigate("ContactUs")}
       />
 
-      {/* Partner */}
       <HeadLine>Be a partner</HeadLine>
 
       <SettingsItem
@@ -80,7 +78,6 @@ export default function SettingsScreen({ navigation }) {
         onPress={() => navigation.navigate("StoreRequest")}
       />
 
-      {/* Footer */}
       <HeadLine>We grow with you</HeadLine>
       <SettingsItem
         title="Leave a feedback"
@@ -99,7 +96,17 @@ export default function SettingsScreen({ navigation }) {
         subtitle="Don't be gone too long, we'll miss you."
         onPress={() => SettingsService.logout(navigation)}
       />
-      {/* Logout */}
+
+      {/** 
+      {preferencesData.map((item) => (
+        <SettingListItem
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          icon={item.icon}
+          onPress={() => console.log(item.title)}
+        />
+      ))}  */}
     </ScrollView>
   );
 }
