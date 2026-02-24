@@ -28,7 +28,7 @@ export default function ThemeItem({ title, onPress }) {
           style={{
             flexDirection: "row",
             alignItems: "center",
-            flex: 1, // 👈 مهم عشان يسيب مساحة للـ toggle
+            flex: 1,
           }}
         >
           <View style={styles.iconContainer}>

@@ -2,7 +2,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabsNavigator from "./TabsNavigator";
 import SettingsScreen from "../features/Settings/screens/SettingsScreen";
 import { View, Text } from "react-native";
+import ProfileScreen from "../features/Settings/components/UpdateProfile/screens/profile/ProfileScreen";
 
+import ItemDetailsScreen from "../features/Settings/components/UpdateProfile/screens/profile/ItemDetailsScreen";
 const Stack = createNativeStackNavigator();
 
 const DummyScreen = ({ title }) => (
@@ -18,10 +20,14 @@ export default function RootNavigator() {
       <Stack.Screen name="Settings" component={SettingsScreen} />
 
       {/* Dummy screens مؤقتة */}
+
       <Stack.Screen
         name="EditProfile"
-        children={() => <DummyScreen title="EditProfile" />}
+        component={ProfileScreen}
+        options={{ headerShown: false }}
       />
+
+      <Stack.Screen name="ItemDetails" component={ItemDetailsScreen} />
       <Stack.Screen
         name="Addresses"
         children={() => <DummyScreen title="Addresses" />}
